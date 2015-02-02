@@ -7,6 +7,7 @@
 //
 
 #import "Gameplay.h"
+#import "CCPhysics+ObjectiveChipmunk.h"
 
 @implementation Gameplay {
     CCPhysicsNode *_physicsNode;
@@ -26,7 +27,7 @@
     self.userInteractionEnabled = TRUE;
     CCScene *level = [CCBReader loadAsScene:@"Levels/Level1"];
     [_levelNode addChild:level];
-    _physicsNode.debugDraw = TRUE;
+//    _physicsNode.debugDraw = TRUE;
     _physicsNode.collisionDelegate = self;
     _pullbackNode.physicsBody.collisionMask = @[];
     _mouseJointNode.physicsBody.collisionMask = @[];
@@ -125,9 +126,20 @@
     [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"Gameplay"]];
 }
 
--(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB
-{
+- (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB {
+//    float energy = [pair totalKineticEnergy];
+//    
+//    // if energy is large enough, remove the seal
+//    if (energy > 5000.f) {
+//        [[_physicsNode space] addPostStepBlock:^{
+//            [self sealRemoved:nodeA];
+//        } key:nodeA];
+//    }
     CCLOG(@"Something collided with a seal!");
+}
+
+- (void)sealRemoved:(CCNode *)seal {
+    [seal removeFromParent];
 }
 
 @end
