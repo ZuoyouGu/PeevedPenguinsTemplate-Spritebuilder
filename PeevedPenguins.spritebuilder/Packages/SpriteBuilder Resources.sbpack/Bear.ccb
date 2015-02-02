@@ -201,7 +201,7 @@
 									<key>type</key>
 									<integer>2</integer>
 									<key>value</key>
-									<real>-15</real>
+									<real>20</real>
 								</dict>
 							</array>
 							<key>name</key>
@@ -279,7 +279,7 @@
 						<key>type</key>
 						<string>Degrees</string>
 						<key>value</key>
-						<real>-15</real>
+						<real>5.3333330154418945</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -454,7 +454,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>2</real>
+			<real>1.2666666507720947</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
